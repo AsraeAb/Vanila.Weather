@@ -1,0 +1,54 @@
+body {
+  background-image: url("weather.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  font-family: "Comfortaa", cursive;
+}
+h1 {
+  color: #fdea2e;
+  text-align: center;
+  padding-top: 30px;
+  margin: 10px;
+}
+
+.forecast-img {
+  width: 200px;
+  padding-top: 0 auto;
+}
+form {
+  display: block;
+  text-align: center;
+  padding-bottom: 10px;
+  color: #ffebbb;
+}
+#city-input,
+#search-form {
+  border: 1px solid #ffc93c;
+  border-radius: 10px;
+}
+.container {
+  text-align: center;
+}
+.card {
+  display: inline-block;
+  background-color: rgb(192, 176, 187);
+  opacity: 0.8;
+  color: #3a0077;
+  margin-bottom: 20px;
+}
+.description {
+  font-weight: bold;
+}
+#forecast {
+  margin-top: 20px;
+  margin-bottom: 100px;
+  color: #400082;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  background-color: rgb(243, 202, 194);
+  opacity: 0.6;
+
+  border-radius: 5px;
+}
