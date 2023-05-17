@@ -53,10 +53,10 @@ function displayForecast(response) {
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
             forecastDay.temp.max
-          )}° </span>
+          )}&#xB0 C </span>
           <span class="weather-forecast-temperature-min"> ${Math.round(
             forecastDay.temp.min
-          )}° </span>
+          )}&#xB0 C </span>
         </div>
       </div>
   `;
@@ -68,11 +68,15 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  let apiKey = "562fcad81f0b3f7577282336ebcbcfd5";
+  let apiKey = "46fac47dd8b8fa26d1b6852218ad3dfe";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
+function updateTemperature(temperature) {
+  const temperatureUI = document.querySelector("#temp-special");
+  temperatureUI.innerHTML = temperature;
+}
 function updateCity(response) {
   const cityName = document.querySelector("#city");
   cityName.innerHTML = `${response.data.name}`;
@@ -89,8 +93,7 @@ function updateCity(response) {
 
   const cloudinessUI = document.querySelector("#cloud");
   cloudinessUI.innerHTML = `${response.data.clouds.all}%`;
-  const temperatureNew = document.querySelector("#temp-special");
-  temperatureNew.innerHTML = Math.round(response.data.main.temp);
+
   let iconElement = document.querySelector("#icon");
   iconElement.setAttribute(
     "src",
@@ -98,6 +101,7 @@ function updateCity(response) {
   );
   iconElement.setAttribute("alt", response.data.weather[0].descriptionx);
   getForecast(response.data.coord);
+  updateTemperature(Math.round(response.data.main.temp));
 }
 function searchCity(city) {
   let apiKey = "562fcad81f0b3f7577282336ebcbcfd5";
@@ -118,3 +122,32 @@ function handleSubmit(event) {
 }
 const searchForm = document.querySelector("#form-special");
 searchForm.addEventListener("submit", handleSubmit);
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp-special");
+
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
+}
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temp-special");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let form = document.querySelector("#form-special");
+form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahr-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#cell-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
