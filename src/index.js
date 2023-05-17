@@ -151,3 +151,4 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#cell-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
+searchCity("Paris");
