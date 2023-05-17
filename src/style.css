@@ -43,6 +43,8 @@ form {
 #forecast {
   margin-top: 20px;
   margin-bottom: 100px;
+  margin-left: 40px;
+  margin-right: 40px;
   color: #400082;
   font-weight: bold;
   text-align: center;
@@ -51,4 +53,8 @@ form {
   opacity: 0.6;
 
   border-radius: 5px;
+}
+#git-link,
+#span {
+  color: #ffc93c;
 }
