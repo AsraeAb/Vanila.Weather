@@ -121,4 +121,28 @@ function handleSubmit(event) {
 const searchForm = document.querySelector("#form-special");
 searchForm.addEventListener("submit", handleSubmit);
 
+function cellToFahr(event) {
+  event.preventDefault();
+  let temperatureElem = document.querySelector("#temp-special");
+  let temperature = temperatureElem.innerHTML;
+  let tempSwitch = Math.round((temperature * 9) / 5 + 32);
+  temperatureElem.innerHTML = tempSwitch;
+}
+///
+function fahrToCell(event) {
+  event.preventDefault();
+
+  let temperatureElem = document.querySelector("#temp-special");
+  let temperature = temperatureElem.innerHTML;
+
+  let fToCel = Math.round(((temperature - 32) * 5) / 9);
+
+  temperatureElem.innerHTML = fToCel;
+}
+
+let celsius = document.querySelector("#cell-link");
+celsius.addEventListener("click", fahrToCell);
+
+let far = document.querySelector("#fahr-link");
+far.addEventListener("click", cellToFahr);
 searchCity("Paris");

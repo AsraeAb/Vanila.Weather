@@ -1,8 +1,16 @@
 body {
   background-image: url("weather.jpg");
+  background-image: flex;
   background-repeat: no-repeat;
   background-size: cover;
   font-family: "Comfortaa", cursive;
+}
+
+.search {
+  border: 1px solid #ffebbb;
+  border-radius: 10px;
+  background-color: rgb(243, 202, 194);
+  opacity: 0.9;
 }
 h1 {
   color: #fdea2e;
