@@ -2,19 +2,19 @@ body {
   background-image: url("weather.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-
   font-family: "Comfortaa", cursive;
 }
 h1 {
   color: #fdea2e;
   text-align: center;
-  padding-top: 30px;
-  margin: 10px;
+  padding-top: 20px;
+  padding-bottom: 0;
 }
 
 .forecast-img {
-  width: 200px;
-  padding-top: 0 auto;
+  width: 160px;
+  padding: 0;
+  margin: 0;
 }
 form {
   display: block;
@@ -37,24 +37,41 @@ form {
   color: #3a0077;
   margin-bottom: 20px;
 }
-.description {
+#date {
+  font-weight: bold;
+}
+
+#temp-special {
+  font-size: 34px;
+  font-weight: bold;
+}
+#icon {
+  width: 80px;
+  margin-bottom: 0;
+}
+
+#description {
   font-weight: bold;
 }
 #forecast {
   margin-top: 20px;
-  margin-bottom: 100px;
-  margin-left: 40px;
-  margin-right: 40px;
+
+  margin-left: 70px;
+  margin-right: 70px;
   color: #400082;
   font-weight: bold;
   text-align: center;
   font-size: 16px;
   background-color: rgb(243, 202, 194);
-  opacity: 0.6;
+  opacity: 0.7;
 
   border-radius: 5px;
 }
-#git-link,
-#span {
+.git-link,
+.span {
   color: #ffc93c;
+  padding-top: 20px;
+  display: block;
+  margin: 0;
+  text-align: center;
 }

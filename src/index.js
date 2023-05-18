@@ -113,42 +113,12 @@ function handleSubmit(event) {
   event.preventDefault();
   let textInput = document.querySelector("#city-input");
   const city = textInput.value.trim();
-
-  if (!city) return;
-
   searchCity(city);
+  if (!city) return;
 
   textInput.value = "";
 }
 const searchForm = document.querySelector("#form-special");
 searchForm.addEventListener("submit", handleSubmit);
 
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temp-special");
-
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let fahrenheiTemperature = (celsiusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(fahrenheiTemperature);
-}
-
-function displayCelsiusTemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temp-special");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
-}
-
-let celsiusTemperature = null;
-
-let form = document.querySelector("#form-special");
-form.addEventListener("submit", handleSubmit);
-
-let fahrenheitLink = document.querySelector("#fahr-link");
-fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
-
-let celsiusLink = document.querySelector("#cell-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
 searchCity("Paris");
